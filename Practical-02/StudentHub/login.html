@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Login to your StudentHub account to access the portal.">
+    <title>Login — StudentHub</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="site-header">
+        <div class="header-container">
+            <a href="index.html" class="site-logo" aria-label="StudentHub Home">Student<span>Hub</span></a>
+            <nav class="main-nav" aria-label="Primary Navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="login.html" class="active">Login</a></li>
+                    <li><a href="register.html">Register</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html">Home</a> &raquo; <span>Login</span>
+        </nav>
+
+        <div class="form-container">
+            <h1>Login to StudentHub</h1>
+
+            <form id="login-form" action="#" method="POST" novalidate>
+                <div class="form-group">
+                    <label for="login-email">Email Address <span aria-hidden="true">*</span></label>
+                    <input type="email" id="login-email" name="email" placeholder="you@example.com" required aria-required="true" autocomplete="email">
+                </div>
+
+                <div class="form-group">
+                    <label for="login-password">Password <span aria-hidden="true">*</span></label>
+                    <input type="password" id="login-password" name="password" placeholder="Enter your password" required aria-required="true" autocomplete="current-password">
+                </div>
+
+                <div class="form-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="login-remember" name="remember_me">
+                        Remember me
+                    </label>
+                </div>
+
+                <button type="submit" class="btn-submit" id="btn-login">Login</button>
+            </form>
+
+            <p class="text-center mb-2" style="margin-top: 16px;">Don't have an account? <a href="register.html">Register here</a></p>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>StudentHub</h4>
+                <p>A student portal by CHARUSAT — Faculty of Technology and Engineering.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Account</h4>
+                <ul>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="register.html">Register</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 StudentHub. All rights reserved. | ITUE203 Web Development Frameworks</p>
+        </div>
+    </footer>
+</body>
+</html>

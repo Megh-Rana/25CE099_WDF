@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Administration panel for StudentHub.">
+    <title>Admin Panel — StudentHub</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="site-header">
+        <div class="header-container">
+            <a href="index.html" class="site-logo">Student<span>Hub</span></a>
+            <nav class="main-nav" aria-label="Primary Navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="admin.html" class="active">Admin Panel</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="login.html">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html">Home</a> &raquo; <a href="dashboard.html">Dashboard</a> &raquo; <span>Admin Panel</span>
+        </nav>
+
+        <h1>Administration Panel</h1>
+        <p>Manage student records, system operations, and audit logs.</p>
+
+        <section aria-labelledby="student-records-heading">
+            <h2 id="student-records-heading">Student Records</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Enrollment</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Course</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>26IT001</td>
+                        <td>Aarav Patel</td>
+                        <td>aarav@example.com</td>
+                        <td>B.Tech IT</td>
+                        <td>
+                            <a href="#">Edit</a> | <a href="#">Delete</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>26CS084</td>
+                        <td>Priya Sharma</td>
+                        <td>priya@example.com</td>
+                        <td>B.Tech CS</td>
+                        <td>
+                            <a href="#">Edit</a> | <a href="#">Delete</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section aria-labelledby="audit-logs-heading">
+            <h2 id="audit-logs-heading">System Audit Logs</h2>
+            <ul>
+                <li>[2026-07-14 10:15:32] User admin logged in from IP 192.168.1.50</li>
+                <li>[2026-07-14 09:30:11] Student record created for Priya Sharma (26CS084)</li>
+                <li>[2026-07-13 16:45:00] Event Web Development Workshop updated by admin</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>StudentHub</h4>
+                <p>A student portal by CHARUSAT — Faculty of Technology and Engineering.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Account</h4>
+                <ul>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="register.html">Register</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 StudentHub. All rights reserved. | ITUE203 Web Development Frameworks</p>
+        </div>
+    </footer>
+</body>
+</html>

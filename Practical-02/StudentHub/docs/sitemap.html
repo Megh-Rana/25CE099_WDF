@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="StudentHub — Visual Sitemap showing the complete page structure and navigation flow.">
+    <title>StudentHub — Sitemap</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        /* ── Sitemap-specific styles ── */
+        .sitemap-wrapper {
+            overflow-x: auto;
+            padding: 10px 0 30px;
+        }
+
+        /* Tree layout using flexbox columns */
+        .tree {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+        }
+
+        /* Each horizontal row of nodes */
+        .tree-row {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            position: relative;
+            width: 100%;
+        }
+
+        /* Connector lines between rows */
+        .tree-row + .tree-row {
+            margin-top: 0;
+        }
+
+        /* Group: a vertical column that may contain a label + children */
+        .tree-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Individual node box */
+        .node {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border-radius: 6px;
+            padding: 10px 14px;
+            min-width: 120px;
+            max-width: 150px;
+            font-size: 0.85em;
+            font-weight: bold;
+            border: 2px solid transparent;
+            text-decoration: none;
+            transition: opacity 0.2s;
+            line-height: 1.3;
+        }
+
+        .node:hover {
+            opacity: 0.85;
+        }
+
+        .node .node-sub {
+            font-size: 0.75em;
+            font-weight: normal;
+            margin-top: 3px;
+            opacity: 0.8;
+        }
+
+        /* Node colour themes by access level */
+        .node-root {
+            background: #333;
+            color: #fff;
+            border-color: #333;
+            min-width: 160px;
+            font-size: 1em;
+            padding: 12px 20px;
+        }
+
+        .node-public {
+            background: #e8f5e9;
+            color: #1b5e20;
+            border-color: #66bb6a;
+        }
+
+        .node-auth {
+            background: #e3f2fd;
+            color: #0d47a1;
+            border-color: #42a5f5;
+        }
+
+        .node-guest {
+            background: #fff8e1;
+            color: #e65100;
+            border-color: #ffa726;
+        }
+
+        .node-admin {
+            background: #fce4ec;
+            color: #880e4f;
+            border-color: #f06292;
+        }
+
+        /* Section header labels */
+        .section-label {
+            font-size: 0.75em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 4px 12px;
+            border-radius: 3px;
+            margin-bottom: 6px;
+            color: #fff;
+        }
+
+        .label-public  { background: #388e3c; }
+        .label-guest   { background: #e65100; }
+        .label-auth    { background: #1565c0; }
+        .label-admin   { background: #ad1457; }
+
+        /* SVG connector lines */
+        .connectors {
+            width: 100%;
+            overflow: visible;
+            display: block;
+        }
+
+        /* ── Vertical / horizontal connector lines via CSS borders ── */
+        .v-line {
+            width: 2px;
+            background: #aaa;
+            margin: 0 auto;
+        }
+
+        .h-line-wrap {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            position: relative;
+            width: 100%;
+        }
+
+        /* Branch connector: draws the top horizontal bar + down-stems */
+        .branch {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .branch-children {
+            display: flex;
+            gap: 16px;
+            position: relative;
+            padding-top: 0;
+        }
+
+        .branch-children::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: calc(75px + 1px);   /* half of min-width(120px) + border(2px)/2 */
+            right: calc(75px + 1px);
+            height: 2px;
+            background: #aaa;
+        }
+
+        .branch-child {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .branch-child::before {
+            content: '';
+            width: 2px;
+            height: 20px;
+            background: #aaa;
+            display: block;
+        }
+
+        /* root down-stem */
+        .root-stem {
+            width: 2px;
+            height: 24px;
+            background: #aaa;
+            margin: 0 auto;
+        }
+
+        /* ── Legend ── */
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 28px;
+            justify-content: center;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85em;
+        }
+
+        .legend-box {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            border: 2px solid;
+            flex-shrink: 0;
+        }
+
+        /* ── Navigation flow section ── */
+        .flow-section {
+            margin-top: 36px;
+        }
+
+        .flow-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9em;
+        }
+
+        .flow-table th {
+            background: #333;
+            color: #fff;
+            padding: 10px;
+        }
+
+        .flow-table td {
+            padding: 10px;
+            vertical-align: top;
+        }
+
+        .flow-table tr:nth-child(even) td {
+            background: #f9f9f9;
+        }
+
+        .flow-arrow {
+            color: #888;
+            margin: 0 4px;
+            font-size: 0.8em;
+        }
+
+        /* ── Page inventory table ── */
+        .inventory-table {
+            font-size: 0.88em;
+        }
+
+        .badge-public  { background: #c8e6c9; color: #1b5e20; }
+        .badge-guest   { background: #fff3e0; color: #e65100; }
+        .badge-auth    { background: #bbdefb; color: #0d47a1; }
+        .badge-admin   { background: #fce4ec; color: #880e4f; }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="site-header">
+        <div class="header-container">
+            <a href="../index.html" class="site-logo" aria-label="StudentHub Home">Student<span>Hub</span></a>
+            <nav class="main-nav" aria-label="Primary Navigation">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../events.html">Events</a></li>
+                    <li><a href="../faq.html">FAQ</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                    <li><a href="../login.html">Login</a></li>
+                    <li><a href="../register.html">Register</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <h1>StudentHub — Site Map</h1>
+        <p>A visual overview of all pages, their access levels, and how they connect across the portal.</p>
+
+        <!-- ── Legend ── -->
+        <div class="legend" role="list" aria-label="Access level legend">
+            <div class="legend-item" role="listitem">
+                <div class="legend-box" style="background:#e8f5e9; border-color:#66bb6a;"></div>
+                <span>Public — accessible to all visitors</span>
+            </div>
+            <div class="legend-item" role="listitem">
+                <div class="legend-box" style="background:#fff8e1; border-color:#ffa726;"></div>
+                <span>Guest only — accessible before login</span>
+            </div>
+            <div class="legend-item" role="listitem">
+                <div class="legend-box" style="background:#e3f2fd; border-color:#42a5f5;"></div>
+                <span>Auth — requires student/admin login</span>
+            </div>
+            <div class="legend-item" role="listitem">
+                <div class="legend-box" style="background:#fce4ec; border-color:#f06292;"></div>
+                <span>Admin — requires admin role</span>
+            </div>
+        </div>
+
+        <!-- ── Visual Tree ── -->
+        <section aria-labelledby="tree-heading">
+            <h2 id="tree-heading">Visual Site Structure</h2>
+            <div class="sitemap-wrapper" role="img" aria-label="Sitemap tree diagram">
+                <div class="tree">
+
+                    <!-- Root -->
+                    <div class="tree-row">
+                        <a href="../index.html" class="node node-root">
+                            StudentHub
+                            <span class="node-sub">index.html</span>
+                        </a>
+                    </div>
+
+                    <div class="root-stem"></div>
+
+                    <!-- Level 1 groups -->
+                    <div class="tree-row">
+                        <!-- Public Pages -->
+                        <div class="branch">
+                            <span class="section-label label-public">Public</span>
+                            <div class="branch-children">
+                                <div class="branch-child">
+                                    <a href="../about.html" class="node node-public">
+                                        About
+                                        <span class="node-sub">about.html</span>
+                                    </a>
+                                </div>
+                                <div class="branch-child">
+                                    <a href="../events.html" class="node node-public">
+                                        Events
+                                        <span class="node-sub">events.html</span>
+                                    </a>
+                                </div>
+                                <div class="branch-child">
+                                    <a href="../faq.html" class="node node-public">
+                                        FAQ
+                                        <span class="node-sub">faq.html</span>
+                                    </a>
+                                </div>
+                                <div class="branch-child">
+                                    <a href="../contact.html" class="node node-public">
+                                        Contact
+                                        <span class="node-sub">contact.html</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Guest Pages -->
+                        <div class="branch" style="margin-left: 24px;">
+                            <span class="section-label label-guest">Guest Only</span>
+                            <div class="branch-children">
+                                <div class="branch-child">
+                                    <a href="../register.html" class="node node-guest">
+                                        Register
+                                        <span class="node-sub">register.html</span>
+                                    </a>
+                                </div>
+                                <div class="branch-child">
+                                    <a href="../login.html" class="node node-guest">
+                                        Login
+                                        <span class="node-sub">login.html</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="root-stem" style="height:30px;"></div>
+
+                    <!-- Level 2: Authenticated area -->
+                    <div class="tree-row">
+                        <!-- Student Auth Area -->
+                        <div class="branch">
+                            <span class="section-label label-auth">Student Area (Login Required)</span>
+                            <div class="branch-children">
+                                <div class="branch-child">
+                                    <a href="../dashboard.html" class="node node-auth">
+                                        Dashboard
+                                        <span class="node-sub">dashboard.html</span>
+                                    </a>
+                                </div>
+                                <div class="branch-child">
+                                    <a href="../profile.html" class="node node-auth">
+                                        Profile
+                                        <span class="node-sub">profile.html</span>
+                                    </a>
+                                </div>
+                                <div class="branch-child">
+                                    <a href="../feedback.html" class="node node-auth">
+                                        Feedback
+                                        <span class="node-sub">feedback.html</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Admin Area -->
+                        <div class="branch" style="margin-left: 24px;">
+                            <span class="section-label label-admin">Admin Area (Admin Role Required)</span>
+                            <div class="branch-children">
+                                <div class="branch-child">
+                                    <a href="../admin.html" class="node node-admin">
+                                        Admin Panel
+                                        <span class="node-sub">admin.html</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!-- /.tree -->
+            </div><!-- /.sitemap-wrapper -->
+        </section>
+
+        <!-- ── Navigation Flow ── -->
+        <section class="flow-section" aria-labelledby="flow-heading">
+            <h2 id="flow-heading">Navigation Flow by Role</h2>
+            <table class="flow-table">
+                <thead>
+                    <tr>
+                        <th>Role</th>
+                        <th>Typical Navigation Path</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="badge badge-public">Guest</span></td>
+                        <td>
+                            Home
+                            <span class="flow-arrow">→</span> About
+                            <span class="flow-arrow">→</span> Events
+                            <span class="flow-arrow">→</span> FAQ
+                            <span class="flow-arrow">→</span> Contact
+                            <span class="flow-arrow">→</span> Register
+                            <span class="flow-arrow">→</span> Login
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge badge-auth">Student</span></td>
+                        <td>
+                            Home
+                            <span class="flow-arrow">→</span> Login
+                            <span class="flow-arrow">→</span> Dashboard
+                            <span class="flow-arrow">→</span> Events
+                            <span class="flow-arrow">→</span> Profile
+                            <span class="flow-arrow">→</span> Feedback
+                            <span class="flow-arrow">→</span> FAQ
+                            <span class="flow-arrow">→</span> Contact
+                            <span class="flow-arrow">→</span> Logout
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge badge-admin">Admin</span></td>
+                        <td>
+                            Home
+                            <span class="flow-arrow">→</span> Login
+                            <span class="flow-arrow">→</span> Dashboard
+                            <span class="flow-arrow">→</span> Admin Panel
+                            <span class="flow-arrow">→</span> Events (Manage)
+                            <span class="flow-arrow">→</span> Students (Manage)
+                            <span class="flow-arrow">→</span> Logout
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- ── Page Inventory ── -->
+        <section aria-labelledby="inventory-heading" style="margin-top: 36px;">
+            <h2 id="inventory-heading">Page Inventory</h2>
+            <table class="inventory-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Page</th>
+                        <th>File</th>
+                        <th>Access</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td><a href="../index.html">Home</a></td>
+                        <td><code>index.html</code></td>
+                        <td><span class="badge badge-public">Public</span></td>
+                        <td>Landing page with portal overview and feature highlights</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td><a href="../about.html">About</a></td>
+                        <td><code>about.html</code></td>
+                        <td><span class="badge badge-public">Public</span></td>
+                        <td>Information about CHARUSAT and the portal</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td><a href="../events.html">Events</a></td>
+                        <td><code>events.html</code></td>
+                        <td><span class="badge badge-public">Public</span></td>
+                        <td>List of upcoming campus events with details</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td><a href="../faq.html">FAQ</a></td>
+                        <td><code>faq.html</code></td>
+                        <td><span class="badge badge-public">Public</span></td>
+                        <td>Frequently asked questions and answers</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td><a href="../contact.html">Contact</a></td>
+                        <td><code>contact.html</code></td>
+                        <td><span class="badge badge-public">Public</span></td>
+                        <td>Contact form and institutional information</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td><a href="../register.html">Register</a></td>
+                        <td><code>register.html</code></td>
+                        <td><span class="badge badge-guest">Guest</span></td>
+                        <td>New user registration form</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td><a href="../login.html">Login</a></td>
+                        <td><code>login.html</code></td>
+                        <td><span class="badge badge-guest">Guest</span></td>
+                        <td>User login form with credential validation</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td><a href="../dashboard.html">Dashboard</a></td>
+                        <td><code>dashboard.html</code></td>
+                        <td><span class="badge badge-auth">Auth</span></td>
+                        <td>Student/admin overview with statistics and notices</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td><a href="../profile.html">Profile</a></td>
+                        <td><code>profile.html</code></td>
+                        <td><span class="badge badge-auth">Auth</span></td>
+                        <td>Student profile view and edit</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td><a href="../feedback.html">Feedback</a></td>
+                        <td><code>feedback.html</code></td>
+                        <td><span class="badge badge-auth">Auth</span></td>
+                        <td>User feedback and suggestion submission</td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td><a href="../admin.html">Admin Panel</a></td>
+                        <td><code>admin.html</code></td>
+                        <td><span class="badge badge-admin">Admin</span></td>
+                        <td>Admin panel for managing students, events, and audit logs</td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>Sitemap</td>
+                        <td><code>docs/sitemap.html</code></td>
+                        <td><span class="badge badge-public">Public</span></td>
+                        <td>Visual site structure and navigation overview (this page)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>StudentHub</h4>
+                <p>A student portal by CHARUSAT — Faculty of Technology and Engineering.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../events.html">Events</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                    <li><a href="../faq.html">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Account</h4>
+                <ul>
+                    <li><a href="../login.html">Login</a></li>
+                    <li><a href="../register.html">Register</a></li>
+                    <li><a href="../dashboard.html">Dashboard</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 StudentHub. All rights reserved. | ITUE203 Web Development Frameworks</p>
+        </div>
+    </footer>
+</body>
+</html>

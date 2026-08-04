@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Manage your StudentHub user profile.">
+    <title>Profile — StudentHub</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="site-header">
+        <div class="header-container">
+            <a href="index.html" class="site-logo">Student<span>Hub</span></a>
+            <nav class="main-nav" aria-label="Primary Navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="profile.html" class="active">Profile</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                    <li><a href="login.html">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html">Home</a> &raquo; <a href="dashboard.html">Dashboard</a> &raquo; <span>Profile</span>
+        </nav>
+
+        <h1>Student Profile</h1>
+        <p>View and update your personal and academic information.</p>
+
+        <div class="content-with-sidebar">
+            <section aria-labelledby="edit-profile-heading">
+                <h2 id="edit-profile-heading">Edit Information</h2>
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="prof-name">Full Name</label>
+                        <input type="text" id="prof-name" name="name" value="Megh" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="prof-email">Email Address</label>
+                        <input type="email" id="prof-email" name="email" value="megh@example.com" disabled>
+                        <small>Email address cannot be changed.</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="prof-mobile">Mobile Number</label>
+                        <input type="tel" id="prof-mobile" name="mobile" value="9876543210" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="prof-bio">Bio</label>
+                        <textarea id="prof-bio" name="bio" placeholder="Tell us about yourself..."></textarea>
+                    </div>
+
+                    <button type="submit">Update Profile</button>
+                </form>
+            </section>
+
+            <aside aria-label="Academic Summary">
+                <h3>Academic Summary</h3>
+                <p><strong>Enrollment:</strong> 26IT001</p>
+                <p><strong>Course:</strong> B.Tech IT</p>
+                <p><strong>Semester:</strong> 3</p>
+                <p><strong>Division:</strong> FTE-IT-A</p>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>StudentHub</h4>
+                <p>A student portal by CHARUSAT — Faculty of Technology and Engineering.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Account</h4>
+                <ul>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="register.html">Register</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 StudentHub. All rights reserved. | ITUE203 Web Development Frameworks</p>
+        </div>
+    </footer>
+</body>
+</html>
