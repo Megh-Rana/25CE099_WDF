@@ -29,6 +29,7 @@
                     <li><a href="register.html">Register</a></li>
                 </ul>
             </nav>
+            <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
         </div>
     </header>
     <div class="nav-overlay" id="nav-overlay"></div>
@@ -75,8 +76,25 @@
 
         <section aria-labelledby="announcements-heading">
             <h2 id="announcements-heading">Latest Announcements</h2>
-            <div class="alert alert-info">Registration for Semester 3 (2026-27) is now open. Complete your profile to get started.</div>
-            <div class="alert alert-warning">Maintenance scheduled for July 20, 2026. Portal may be temporarily unavailable.</div>
+            <div class="slider-container" id="content-slider">
+                <div class="slide active">
+                    <h3>📢 Registration Open</h3>
+                    <p>Registration for Semester 3 (2026-27) is now open. Complete your profile to get started.</p>
+                </div>
+                <div class="slide">
+                    <h3>🛠️ Scheduled Maintenance</h3>
+                    <p>Maintenance scheduled for July 20, 2026. Portal may be temporarily unavailable.</p>
+                </div>
+                <div class="slide">
+                    <h3>🎉 TechFest 2026</h3>
+                    <p>Annual TechFest registrations begin next week. Watch the Events page for details!</p>
+                </div>
+                <div class="slider-controls">
+                    <button class="slider-prev" aria-label="Previous slide">◀ Prev</button>
+                    <div class="slider-dots"></div>
+                    <button class="slider-next" aria-label="Next slide">Next ▶</button>
+                </div>
+            </div>
         </section>
     </main>
 
@@ -108,5 +126,6 @@
             <p>&copy; 2026 StudentHub. All rights reserved. | ITUE203 Web Development Frameworks</p>
         </div>
     </footer>
+    <script src="js/app.js"></script>
 </body>
 </html>

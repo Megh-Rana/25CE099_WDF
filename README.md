@@ -11,6 +11,7 @@
 | `Practical-01/` | P1 | Project Initiation — Sitemap, Wireframe, GitHub Setup |
 | `Practical-02/` | P2 | Semantic HTML5 Pages with Accessibility-Ready Structure |
 | `Practical-03/` | P3 | Responsive UI Design using CSS Grid, Flexbox, and Media Queries |
+| `Practical-04/` | P4 | JavaScript DOM Manipulation, Event Handling, and UI Interactivity |
 
 ## Project: StudentHub Portal
 
