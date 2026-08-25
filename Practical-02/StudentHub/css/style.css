@@ -1235,3 +1235,79 @@ body.dark-theme .alert-warning {
     transform: translateY(-3px);
     background: var(--color-accent-dark);
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   FORM VALIDATION STYLES (Practical 5)
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Error/Success field borders */
+.input-error {
+    border-color: #c62828 !important;
+    box-shadow: 0 0 0 3px rgba(198,40,40,0.12) !important;
+}
+
+.input-success {
+    border-color: #2e7d32 !important;
+    box-shadow: 0 0 0 3px rgba(46,125,50,0.1) !important;
+}
+
+/* Field error message */
+.field-error {
+    display: none;
+    color: #c62828;
+    font-size: 0.82rem;
+    margin-top: 4px;
+    padding-left: 2px;
+    line-height: 1.4;
+}
+
+.field-error.visible {
+    display: block;
+    animation: slideDown 0.2s ease;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-4px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Password strength meter */
+.password-strength {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.strength-bar {
+    flex: 1;
+    height: 6px;
+    background: #e0e0e0;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.strength-fill {
+    height: 100%;
+    width: 0;
+    border-radius: 3px;
+    transition: width 0.4s ease, background 0.4s ease;
+}
+
+.strength-fill.weak {
+    background: #c62828;
+}
+
+.strength-fill.fair {
+    background: #f57c00;
+}
+
+.strength-fill.strong {
+    background: #2e7d32;
+}
+
+.strength-text {
+    font-size: 0.78rem;
+    font-weight: 600;
+    min-width: 50px;
+}
