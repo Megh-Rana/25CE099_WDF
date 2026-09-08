@@ -14,6 +14,7 @@
 | `Practical-04/` | P4 | JavaScript DOM Manipulation, Event Handling, and UI Interactivity |
 | `Practical-05/` | P5 | Registration Form with Frontend Validation and Error Handling |
 | `Practical-06/` | P6 | Render External JSON Data with Fetch API, Search, Filter, and Pagination |
+| `Practical-07/` | P7 | PHP Form Processing with Server-Side Validation and CSV/JSON Storage |
 
 ## Project: StudentHub Portal
 

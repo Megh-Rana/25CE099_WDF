@@ -1,0 +1,56 @@
+[
+    {
+        "fullname": "Megh Rana",
+        "email": "meghrana2007@gmail.com",
+        "mobile": "9876543210",
+        "gender": "male",
+        "course": "btech-cs",
+        "year": "2",
+        "registered_at": "2026-09-08 09:45:00"
+    },
+    {
+        "fullname": "Aarav Patel",
+        "email": "aarav.patel@charusat.edu.in",
+        "mobile": "9825123456",
+        "gender": "male",
+        "course": "btech-it",
+        "year": "2",
+        "registered_at": "2026-09-08 10:15:22"
+    },
+    {
+        "fullname": "Priya Sharma",
+        "email": "priya.sharma@charusat.edu.in",
+        "mobile": "9712345678",
+        "gender": "female",
+        "course": "btech-cs",
+        "year": "3",
+        "registered_at": "2026-09-09 11:20:10"
+    },
+    {
+        "fullname": "Rohan Verma",
+        "email": "rohan.verma@charusat.edu.in",
+        "mobile": "9638527410",
+        "gender": "male",
+        "course": "btech-ec",
+        "year": "1",
+        "registered_at": "2026-09-10 14:05:44"
+    },
+    {
+        "fullname": "Ananya Joshi",
+        "email": "ananya.joshi@charusat.edu.in",
+        "mobile": "9512368740",
+        "gender": "female",
+        "course": "btech-it",
+        "year": "4",
+        "registered_at": "2026-09-12 16:30:15"
+    },
+    {
+        "fullname": "Kavya Desai",
+        "email": "kavya.desai@charusat.edu.in",
+        "mobile": "9408529631",
+        "gender": "female",
+        "course": "btech-me",
+        "year": "2",
+        "registered_at": "2026-09-15 09:12:00"
+    }
+]

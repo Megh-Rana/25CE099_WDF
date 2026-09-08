@@ -1,0 +1,23 @@
+[
+    {
+        "name": "Aarav Patel",
+        "email": "aarav.patel@charusat.edu.in",
+        "subject": "Inquiry regarding TechFest Hackathon registration",
+        "message": "Hello, I wanted to inquire if 2nd year students from CE department can participate in the IoT category.",
+        "submitted_at": "2026-09-10 11:30:15"
+    },
+    {
+        "name": "Dr. Neha Shah",
+        "email": "neha.shah@charusat.edu.in",
+        "subject": "Guest Lecture Scheduling for Semester 3",
+        "message": "Please confirm the auditorium availability for the upcoming session on Cloud Native Architecture.",
+        "submitted_at": "2026-09-12 14:45:00"
+    },
+    {
+        "name": "Rohan Verma",
+        "email": "rohan.verma@charusat.edu.in",
+        "subject": "Query regarding Course Syllabus and Materials",
+        "message": "Could you please update the practical list and laboratory assignment links on the dashboard?",
+        "submitted_at": "2026-09-14 09:20:30"
+    }
+]
