@@ -15,6 +15,10 @@
 | `Practical-05/` | P5 | Registration Form with Frontend Validation and Error Handling |
 | `Practical-06/` | P6 | Render External JSON Data with Fetch API, Search, Filter, and Pagination |
 | `Practical-07/` | P7 | PHP Form Processing with Server-Side Validation and CSV/JSON Storage |
+| `Practical-08/` | P8 | MySQL Schema Design, ER Model, PDO Connectivity, and Prepared Statements |
+| `Practical-09/` | P9 | Secure User Registration with Database Insert, Duplicate Email Check, and Password Hashing |
+| `Practical-10/` | P10 | Secure Login/Logout with Sessions, Role-Based Access, Timeout, and Remember-Me Token |
+| `Practical-11/` | P11 | Student Management CRUD with Search, Filter, Pagination, Soft-Delete, and CSV Export |
 
 ## Project: StudentHub Portal
 
