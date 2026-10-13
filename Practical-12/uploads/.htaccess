@@ -1,0 +1,15 @@
+# StudentHub — Upload Directory Hardening (Practical 12: Advanced Extension)
+# Prevent execution of executable scripts uploaded by malicious users
+
+Options -Indexes -ExecCGI
+
+<FilesMatch "\.(php|php[0-9]|phtml|pl|py|jsp|asp|sh|cgi|phar)$">
+    Order Deny,Allow
+    Deny from all
+</FilesMatch>
+
+# Only permit images and static media
+<FilesMatch "\.(jpg|jpeg|png|webp|gif)$">
+    Order Allow,Deny
+    Allow from all
+</FilesMatch>

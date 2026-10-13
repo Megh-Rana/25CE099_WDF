@@ -19,6 +19,7 @@
 | `Practical-09/` | P9 | Secure User Registration with Database Insert, Duplicate Email Check, and Password Hashing |
 | `Practical-10/` | P10 | Secure Login/Logout with Sessions, Role-Based Access, Timeout, and Remember-Me Token |
 | `Practical-11/` | P11 | Student Management CRUD with Search, Filter, Pagination, Soft-Delete, and CSV Export |
+| `Practical-12/` | P12 | Event Management CRUD with Poster Upload and File Validation |
 
 ## Project: StudentHub Portal
 
